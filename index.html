@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little KITES School Wiki Search</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manjari:wght@400;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-shape circle-one"></div>
+  <div class="bg-shape circle-two"></div>
+
+  <main class="container">
+    <header class="card-header">
+      <div class="badge-tag">Little KITES Kerala</div>
+      <h1>സ്കൂൾ വിക്കി സെർച്ച്</h1>
+      <p class="subtitle">നിങ്ങളുടെ സ്കൂൾ കോഡ് നൽകി സ്കൂൾ വിക്കി പേജ് വേഗത്തിൽ കണ്ടെത്താം</p>
+    </header>
+
+    <section class="search-section">
+      <div class="input-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input 
+          type="text" 
+          id="schoolCode" 
+          placeholder="Enter School Code (e.g. 21006)" 
+          autocomplete="off"
+          inputmode="numeric"
+        />
+        <button id="clearBtn" class="clear-btn" aria-label="Clear input">&times;</button>
+      </div>
+      <button id="searchBtn" class="primary-btn" onclick="handleSearch()">തിരയുക</button>
+    </section>
+
+    <!-- Status Messages -->
+    <div id="loading" class="status-box loading-box">
+      <div class="spinner"></div>
+      <span>വിവരങ്ങൾ തിരയുന്നു... ദയവായി കാത്തിരിക്കൂ</span>
+    </div>
+
+    <div id="errorMessage" class="status-box error-box"></div>
+
+    <!-- Results Card -->
+    <section id="resultCard" class="result-card">
+      <div class="result-header">
+        <span class="pill code-pill" id="resCode"></span>
+        <span class="pill mgmt-pill" id="resManagement"></span>
+      </div>
+
+      <h2 id="resName" class="school-title"></h2>
+
+      <div class="detail-row">
+        <span class="label">ഉപജില്ല:</span>
+        <span id="resSubdistrict" class="value"></span>
+      </div>
+
+      <a id="wikiLink" href="#" target="_blank" rel="noopener noreferrer" class="cta-btn">
+        <span>സ്കൂൾ വിക്കി പേജ് തുറക്കുക</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </svg>
+      </a>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
